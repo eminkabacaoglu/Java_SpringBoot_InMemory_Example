@@ -1,15 +1,15 @@
 package kodlama.io.programmingLangs.webApi.controllers;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import kodlama.io.programmingLangs.business.abstracts.ProgrammingLanguageService;
-import kodlama.io.programmingLangs.entities.concretes.ProgrammingLanguage;
 
 @RestController
 @RequestMapping("api/languages")
@@ -27,12 +27,12 @@ public class ProgrammingLanguageController {
 		return programmingLanguageService.getAll();
 	}
 	
-	@GetMapping("/delete")
+	@DeleteMapping("/delete")
 	public String delete(@RequestParam int id) {
 		return programmingLanguageService.deleteLang(id);
 	}
 	
-	@GetMapping("/update")
+	@PutMapping("/update")
 	public String update(@RequestParam int id,@RequestParam String name) {
 		return programmingLanguageService.updateLang(id,name);
 	}
@@ -42,7 +42,7 @@ public class ProgrammingLanguageController {
 		return programmingLanguageService.findLanguageById(id);
 	}
 	
-	@GetMapping("/addlang")
+	@PostMapping("/addlang")
 	public String insertLang(@RequestParam String name) {
 		return programmingLanguageService.insertLang(name);
 		

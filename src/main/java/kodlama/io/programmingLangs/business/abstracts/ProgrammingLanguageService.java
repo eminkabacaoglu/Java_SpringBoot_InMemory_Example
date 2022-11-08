@@ -1,9 +1,5 @@
 package kodlama.io.programmingLangs.business.abstracts;
 
-import java.util.List;
-
-import kodlama.io.programmingLangs.entities.concretes.ProgrammingLanguage;
-
 public interface ProgrammingLanguageService {
 
 	String getAll();
